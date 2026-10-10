@@ -41,17 +41,16 @@ kind: API
 metadata:
   name: api-cep
   description: API pública para consulta de CEP via ViaCEP
+  tages:
+    - api
+    - rest
+    - cep
 spec:
   type: openapi
   lifecycle: experimental
-  owner: group:default/team-cep
-  definition: |
-    openapi: 3.0.0
-    info:
-      title: API CEP
-      version: "1.0.0"
-      description: API simples para consulta de CEPs via ViaCEP
-    paths: {}
+  owner: group:default/guest
+  definition:
+    $text: ./openapi.yaml
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource

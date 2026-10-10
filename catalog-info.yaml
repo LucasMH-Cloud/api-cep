@@ -11,10 +11,8 @@ metadata:
     - docker
     - backend
     - experimental
-
   annotations:
     github.com/project-slug: LucasMH-Cloud/api-cep
-
   links:
     - url: https://github.com/LucasMH-Cloud/api-cep
       title: Repositório (GitHub)
@@ -39,6 +37,23 @@ spec:
     - resource:default/viacep-api
 ---
 apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: api-cep
+  description: API pública para consulta de CEP via ViaCEP
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: group:default/team-cep
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: API CEP
+      version: "1.0.0"
+      description: API simples para consulta de CEPs via ViaCEP
+    paths: {}
+---
+apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
   name: viacep-api
@@ -53,9 +68,9 @@ metadata:
       icon: web
     - url: https://viacep.com.br/ws/01310100/json/
       title: Exemplo de Consulta de CEP (ViaCEP)
-      icon: docs 
-  spec:
-    type: external-api
-    owner: group:default/team-cep
-    dependencyOf:
-      - component:default/api-cep
+      icon: docs
+spec:
+  type: external-api
+  owner: group:default/team-cep
+  dependencyOf:
+    - component:default/api-cep
